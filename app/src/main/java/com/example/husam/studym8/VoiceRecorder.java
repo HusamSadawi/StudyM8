@@ -47,11 +47,12 @@ public class VoiceRecorder extends AppCompatActivity {
         });
     }
 
-    public void record(){
+    public void startRecording(){
         if(checkPermission()){
             recording = new VoiceMemo(course);
             AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
                     +createRandomFileName(3)+ recording.getCourse().getID()+".3gp";
+            recording.setPath(AudioSavePathInDevice);
 
             VoiceRecorderReady();
             try {
@@ -69,18 +70,18 @@ public class VoiceRecorder extends AppCompatActivity {
 
     }
 
-    public void stop(){
+    public void stopRecording(){
         mediaRecorder.stop();
     }
 
-    public void pause(){
+    public void pauseRecording(){
         mediaRecorder.pause();
     }
-    public void resume(){
+    public void resumeRecording(){
         mediaRecorder.resume();
     }
 
-    public void playRecording(){
+    public void startPlayer(){
         mediaPlayer = new MediaPlayer();
 
         try {
@@ -93,7 +94,18 @@ public class VoiceRecorder extends AppCompatActivity {
 
     }
 
-    public void stopRecording(){
+    public void pausePlayer(){
+        if(mediaPlayer != null){
+            mediaPlayer.pause();
+        }
+    }
+
+    public void resumePlayer(){
+        if(mediaPlayer != null){
+            mediaPlayer.start();
+        }
+    }
+    public void stopPlayer(){
         if(mediaPlayer != null){
             mediaPlayer.stop();
             mediaPlayer.release();

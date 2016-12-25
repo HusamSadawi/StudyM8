@@ -32,8 +32,10 @@ public class Camera extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     protected static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 0;
-
-    Uri imageUri;
+    String SavePathInDevice = null;
+    private Image image;
+    private Course course;
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +53,22 @@ public class Camera extends AppCompatActivity {
         });
     }
 
+    public void takePicture(){
+        image = new Image(course);
+        SavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
+                +createRandomFileName(3)+ image.getCourse().getID()+".jpg";
+        image.setPath(SavePathInDevice);
+        delegateTakingPicture();
+    }
+
    private void delegateTakingPicture(){
        // this method will delegate taking pictures task to android's built in camera app
        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-       imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),"fname_" +
-               String.valueOf(System.currentTimeMillis()) + ".jpg"));
-       intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageUri);
+       intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, image.getPath());
        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
    }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -66,15 +76,14 @@ public class Camera extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
 
-                //use imageUri here to access the image
+
 
                 Bundle extras = data.getExtras();
 
-                Log.e("URI",imageUri.toString());
+                Log.e("URI",image.getPath());
 
-                Bitmap bmp = (Bitmap) extras.get("data");
-
-                // here you will get the image as bitmap
+                Bitmap photo = (Bitmap) extras.get("data");
+                imageView.setImageBitmap(photo);
 
 
             }
@@ -82,5 +91,19 @@ public class Camera extends AppCompatActivity {
         }
 
 
+    }
+
+    public String createRandomFileName(int string){
+        String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder( string );
+        int i = 0 ;
+        while(i < string ) {
+            stringBuilder.append(RandomAudioFileName.
+                    charAt(random.nextInt(RandomAudioFileName.length())));
+
+            i++ ;
+        }
+        return stringBuilder.toString();
     }
 }
