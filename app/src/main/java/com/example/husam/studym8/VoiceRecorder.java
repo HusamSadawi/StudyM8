@@ -1,7 +1,9 @@
 package com.example.husam.studym8;
 
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.*;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -74,9 +76,11 @@ public class VoiceRecorder extends AppCompatActivity {
         mediaRecorder.stop();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void pauseRecording(){
         mediaRecorder.pause();
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void resumeRecording(){
         mediaRecorder.resume();
     }
@@ -135,7 +139,7 @@ public class VoiceRecorder extends AppCompatActivity {
         return stringBuilder.toString();
     }
     private void requestPermission() {
-        ActivityCompat.requestPermissions(MainActivity.this, new
+        ActivityCompat.requestPermissions(this, new
                 String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
     }
     public void onRequestPermissionsResult(int requestCode,
@@ -147,13 +151,6 @@ public class VoiceRecorder extends AppCompatActivity {
                             PackageManager.PERMISSION_GRANTED;
                     boolean RecordPermission = grantResults[1] ==
                             PackageManager.PERMISSION_GRANTED;
-
-                    if (StoragePermission && RecordPermission) {
-                        Toast.makeText(MainActivity.this, "Permission Granted",
-                                Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(MainActivity.this,"Permission Denied",Toast.LENGTH_LONG).show();
-                    }
                 }
                 break;
         }
@@ -170,4 +167,3 @@ public class VoiceRecorder extends AppCompatActivity {
 }
 
 
-}
