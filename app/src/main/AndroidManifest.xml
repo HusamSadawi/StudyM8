@@ -15,6 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".VoiceRecorder"
+            android:label="@string/title_activity_voice_recorder"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Camera"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
