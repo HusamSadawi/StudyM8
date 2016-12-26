@@ -16,6 +16,8 @@ import android.content.*;
 import android.support.*;
 import android.widget.Toast;
 
+import com.example.husam.studym8.fragment.Courses;
+
 import java.util.*;
 
 import java.io.IOException;
@@ -30,7 +32,7 @@ public class VoiceRecorder extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private MediaRecorder mediaRecorder;
     public VoiceMemo recording;
-    public Course course;
+    public Courses course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -9,15 +9,15 @@ import android.os.*;
 import android.content.*;
 import android.support.*;
 
-
+import com.example.husam.studym8.fragment.Courses;
 
 
 public class VoiceMemo  {
     private String path;
-    private Course course;
+    private Courses course;
     private String name;
 
-    VoiceMemo(Course course) {
+    VoiceMemo(Courses course) {
         this.course = course;
         this.name = course.getName();
     }
@@ -26,7 +26,7 @@ public class VoiceMemo  {
         return path;
     }
 
-    public Course getCourse() {
+    public Courses getCourse() {
         return course;
     }
 
@@ -38,7 +38,7 @@ public class VoiceMemo  {
         this.path = path;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(Courses course) {
         this.course = course;
     }
 

@@ -23,11 +23,6 @@ import com.example.husam.studym8.fragment.Gallery;
 import com.example.husam.studym8.fragment.FlashCards;
 import com.example.husam.studym8.fragment.Settings;
 import com.example.husam.studym8.fragment.VoiceMemos;
-import com.example.husam.studym8.adapter.ItemSlideMenu;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,12 +101,12 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
     }
 
-
-    @Override
+    //this is the option menu
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

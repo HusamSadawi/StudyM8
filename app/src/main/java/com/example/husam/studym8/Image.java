@@ -1,5 +1,7 @@
 package com.example.husam.studym8;
 
+import com.example.husam.studym8.fragment.Courses;
+
 /**
  * Created by Husam on 12/25/2016.
  */
@@ -7,9 +9,9 @@ package com.example.husam.studym8;
 public class Image {
     private String name;
     private String path;
-    private Course course;
+    private Courses course;
 
-    Image(Course course){
+    Image(Courses course){
         this.course = course;
         this.name = course.getName();
     }
@@ -18,7 +20,7 @@ public class Image {
         return name;
     }
 
-    public Course getCourse() {
+    public Courses getCourse() {
         return course;
     }
 
@@ -30,7 +32,7 @@ public class Image {
         this.name = name;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(Courses course) {
         this.course = course;
     }
 

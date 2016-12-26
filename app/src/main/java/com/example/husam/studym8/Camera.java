@@ -19,6 +19,8 @@ import android.support.*;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.husam.studym8.fragment.Courses;
+
 import java.io.File;
 import java.util.*;
 
@@ -34,7 +36,7 @@ public class Camera extends AppCompatActivity {
     protected static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 0;
     String SavePathInDevice = null;
     private Image image;
-    private Course course;
+    private Courses course;
     private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
