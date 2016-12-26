@@ -16,12 +16,10 @@ public class Course {
         this.ID = ID;
     }
 
-     Course(String name){
-        this.name = name;
+     Course(String name, String ID){
+        this.name = name; this.ID = ID;
     }
-     Course(String ID){
-        this.ID = ID;
-    }
+
 
     public void setCredits(int credits) {
         this.credits = credits;
