@@ -31,4 +31,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'me.dm7.android.widget:android.widget:1.0'
     compile 'com.github.sundeepk:compact-calendar-view:1.9.5'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }

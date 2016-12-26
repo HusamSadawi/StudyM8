@@ -8,25 +8,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name="com.example.husam.studym8.MainActivity" android:label="SlidingMenuExample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".VoiceRecorder"
-            android:label="@string/title_activity_voice_recorder"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Camera"
-            android:label="@string/title_activity_camera"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Calendar"
-            android:label="@string/title_activity_calendar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

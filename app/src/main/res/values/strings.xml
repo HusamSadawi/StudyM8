@@ -3,4 +3,6 @@
     <string name="title_activity_voice_recorder">VoiceRecorder</string>
     <string name="title_activity_camera">Camera</string>
     <string name="title_activity_calendar">Calendar</string>
+    <string name="drawer_opened">Opened</string>
+    <string name="drawer_closed">Closed</string>
 </resources>
