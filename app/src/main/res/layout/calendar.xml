@@ -3,9 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="calendar"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
+        android:layout_height="420dp"></ListView>
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Add event"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/addevent"
+        android:onClick="addEvent1"/>
 </LinearLayout>

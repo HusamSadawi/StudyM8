@@ -28,5 +28,6 @@
         android:text="Add Course"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/addCourse" />
+        android:id="@+id/addCourse"
+        android:onClick="addCourse"/>
 </LinearLayout>
