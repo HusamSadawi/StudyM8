@@ -17,6 +17,7 @@ import android.support.*;
 import android.widget.Toast;
 
 import com.example.husam.studym8.fragment.Courses;
+import com.example.husam.studym8.fragment.VoiceMemos;
 
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class VoiceRecorder extends AppCompatActivity {
     public static final int RequestPermissionCode = 1;
     private MediaPlayer mediaPlayer;
     private MediaRecorder mediaRecorder;
-    public VoiceMemo recording;
+    public VoiceMemos recording;
     public Courses course;
 
     @Override
@@ -53,7 +54,7 @@ public class VoiceRecorder extends AppCompatActivity {
 
     public void startRecording(){
         if(checkPermission()){
-            recording = new VoiceMemo(course);
+            recording = new VoiceMemos(course);
             AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
                     +createRandomFileName(3)+ recording.getCourse().getID()+".3gp";
             recording.setPath(AudioSavePathInDevice);
