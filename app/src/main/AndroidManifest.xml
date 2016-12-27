@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.husam.studym8">
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +12,7 @@
         android:theme="@style/AppTheme"
         android:debuggable="true">
 
-        <activity android:name="com.example.husam.studym8.MainActivity" android:label="SlidingMenuExample">
+        <activity android:name="com.example.husam.studym8.MainActivity" android:label="StudyM8">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,7 +30,6 @@
         </activity>
         <activity android:name="com.example.husam.studym8.deleteCourse" android:label="Delete a Course">
         </activity>
-
 
 
     </application>

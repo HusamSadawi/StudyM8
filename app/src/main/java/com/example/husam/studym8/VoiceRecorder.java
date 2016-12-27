@@ -45,9 +45,9 @@ public class VoiceRecorder extends AppCompatActivity {
             final Button play = (Button) findViewById(R.id.play);
             final Button stop = (Button) findViewById(R.id.stop);
             final Button record = (Button) findViewById(R.id.record);
-            play.setEnabled(false);
+            play.setEnabled(true);
             stop.setEnabled(true);
-            record.setEnabled(false);
+            record.setEnabled(true);
             //VoiceRecorderReady();
             record.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View button)
@@ -79,7 +79,7 @@ public class VoiceRecorder extends AppCompatActivity {
     }
 
     public void startRecording(){
-        if(checkPermission()){
+      //  if(checkPermission()){
             recording = new VoiceMemos(course);
             AudioSavePathInDevice = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"
                     +createRandomFileName(3)+ recording.getCourse().getID()+".3gp";
@@ -93,11 +93,11 @@ public class VoiceRecorder extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        else{
-            requestPermission();
-        }
+      //  else{
+       //     requestPermission();
+       // }
 
-    }
+
 
     public void stopRecording(){
         mediaRecorder.stop();
