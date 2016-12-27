@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import com.example.husam.studym8.Camera;
 import com.example.husam.studym8.Image;
 import com.example.husam.studym8.R;
+import com.example.husam.studym8.addCourseActivity;
+import com.example.husam.studym8.takePicture;
 
 import java.util.LinkedList;
 
@@ -68,8 +70,10 @@ public class Gallery extends ListFragment {
 
     public void takePicture()
     {
-        Camera cam = new Camera();
-        cam.takePicture();
+        Intent intent = new Intent(getActivity(), takePicture.class);
+        getActivity().startActivity(intent);
+       /* Camera cam = new Camera();
+        cam.takePicture();*/
        // Intent intent = new Intent(getActivity(), Camera.class);
         //getActivity().startActivity(intent);
     }

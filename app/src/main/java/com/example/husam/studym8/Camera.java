@@ -1,5 +1,6 @@
 package com.example.husam.studym8;
 
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -38,6 +39,11 @@ public class Camera extends AppCompatActivity {
     private Image image;
     private Courses course = new Courses("SE322", "SE322");
     private ImageView imageView;
+    Context context = this;
+    public Camera(){
+        this.context = Camera.this;
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -52,13 +58,20 @@ public class Camera extends AppCompatActivity {
         image.setPath(SavePathInDevice);
         delegateTakingPicture();
     }
+   // static final int REQUEST_IMAGE_CAPTURE = 1;
 
-   private void delegateTakingPicture(){
+    private void delegateTakingPicture() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        
+    }
+  /* private void delegateTakingPicture(){
        // this method will delegate taking pictures task to android's built in camera app
        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
        intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, image.getPath());
-       startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-   }
+       this.startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+
+   }*/
 
 
 

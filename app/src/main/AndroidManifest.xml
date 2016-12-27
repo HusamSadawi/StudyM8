@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.husam.studym8">
+
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" />
+-->
 
     <application
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:debuggable="true">
-
-        <activity android:name="com.example.husam.studym8.MainActivity" android:label="StudyM8">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="StudyM8">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.husam.studym8.addCourseActivity" android:label="Add a Course">
-        </activity>
-        <activity android:name="com.example.husam.studym8.addEvent" android:label="Add Event">
-        </activity>
-        <activity android:name="com.example.husam.studym8.VoiceRecorder" android:label="Voice Recorder">
-        </activity>
-        <activity android:name="com.example.husam.studym8.Camera" android:label="Pictures">
-        </activity>
-        <activity android:name="com.example.husam.studym8.Course1" android:label="Software Design and Architecture">
-        </activity>
-        <activity android:name="com.example.husam.studym8.deleteCourse" android:label="Delete a Course">
-        </activity>
-
-
+        <activity
+            android:name=".addCourseActivity"
+            android:label="Add a Course"></activity>
+        <activity
+            android:name=".addEvent"
+            android:label="Add Event"></activity>
+        <activity
+            android:name=".VoiceRecorder"
+            android:label="Voice Recorder"></activity>
+        <activity
+            android:name=".Camera"
+            android:label="Pictures"></activity>
+        <activity
+            android:name=".Course1"
+            android:label="Software Design and Architecture"></activity>
+        <activity
+            android:name=".deleteCourse"
+            android:label="Delete a Course"></activity>
+        <activity android:name=".takePicture"></activity>
     </application>
+
 </manifest>
