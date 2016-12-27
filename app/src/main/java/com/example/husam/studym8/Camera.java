@@ -36,23 +36,13 @@ public class Camera extends AppCompatActivity {
     protected static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 0;
     String SavePathInDevice = null;
     private Image image;
-    private Courses course;
+    private Courses course = new Courses("SE322", "SE322");
     private ImageView imageView;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        setContentView(R.layout.camera);
     }
 
     public void takePicture(){

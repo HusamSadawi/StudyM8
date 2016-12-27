@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
-    <DatePicker
-        android:layout_marginLeft="17dp"
-        android:layout_width="450dp"
-        android:layout_height="400dp"
-        android:id="@+id/datePicker"/>
 
     <EditText
-        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter Event title"
+        android:inputType="textPersonName"
+        android:text="Enter Course Name"
         android:ems="10"
-        android:id="@+id/Done" />
+        android:layout_marginTop="150dp"
+        android:id="@+id/editText"/>
+
     <Button
+        android:text="Delete"
         android:layout_gravity="center_horizontal"
-        android:text="Done"
+        android:layout_marginTop="35dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/done"
-        android:onClick="Done"/>
-
+        android:id="@+id/button"
+        android:onClick="delete"/>
 </LinearLayout>

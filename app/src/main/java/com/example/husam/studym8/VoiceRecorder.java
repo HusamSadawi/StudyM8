@@ -14,6 +14,7 @@ import android.media.*;
 import android.os.Environment;
 import android.content.*;
 import android.support.*;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.husam.studym8.fragment.Courses;
@@ -25,31 +26,56 @@ import java.io.IOException;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.R.id.button2;
 
 public class VoiceRecorder extends AppCompatActivity {
+
 
     String AudioSavePathInDevice = null;
     public static final int RequestPermissionCode = 1;
     private MediaPlayer mediaPlayer;
-    private MediaRecorder mediaRecorder;
+    private MediaRecorder mediaRecorder = new MediaRecorder();
     public VoiceMemos recording;
-    public Courses course;
+    public Courses course = new Courses("SE322","SE322");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_voice_recorder);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.addrecording);
+            final Button play = (Button) findViewById(R.id.play);
+            final Button stop = (Button) findViewById(R.id.stop);
+            final Button record = (Button) findViewById(R.id.record);
+            play.setEnabled(false);
+            stop.setEnabled(true);
+            record.setEnabled(false);
+            //VoiceRecorderReady();
+            record.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View button)
+                {
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+                    startRecording();
+                    record.setEnabled(false);
+                    stop.setEnabled(true);
+                }
+
+            });
+            stop.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View button2) {
+                    stopRecording();
+                    record.setEnabled(true);
+                    stop.setEnabled(false);
+                    play.setEnabled(true);
+                }
+            });
+            play.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View button2) {
+                    record.setEnabled(false);
+                    startPlayer();
+                    stop.setEnabled(true);
+                    play.setEnabled(false);
+                }
+            });
+
     }
 
     public void startRecording(){
@@ -66,8 +92,6 @@ public class VoiceRecorder extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
         }
         else{
             requestPermission();
@@ -126,6 +150,7 @@ public class VoiceRecorder extends AppCompatActivity {
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         mediaRecorder.setOutputFile(recording.getPath());
+        System.out.println("VoiceRecorderReady");
     }
 
     public String createRandomFileName(int string){

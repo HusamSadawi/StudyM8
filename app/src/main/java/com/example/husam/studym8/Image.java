@@ -15,6 +15,10 @@ public class Image {
         this.course = course;
         this.name = course.getName();
     }
+    public Image()
+    {
+
+    }
 
     public String getName() {
         return name;

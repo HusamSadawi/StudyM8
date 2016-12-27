@@ -3,18 +3,24 @@ package com.example.husam.studym8.fragment;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.example.husam.studym8.Course1;
 import com.example.husam.studym8.R;
 import com.example.husam.studym8.addCourseActivity;
+import com.example.husam.studym8.deleteCourse;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -22,16 +28,18 @@ public class Courses extends ListFragment {
     private String name;
     private String ID;
     private int credits;
-    public static List<String> courses = new ArrayList<>();
+    public static List<String> courses = new ArrayList<String>(Arrays.asList("Software Design and Architecture", "Project Management"
+    , "Quality Assurance"));
 
 
-        Courses(String name, String ID, int credits){
+
+       public Courses(String name, String ID, int credits){
             this.credits = credits;
             this.name = name;
             this.ID = ID;
         }
 
-        Courses(String name, String ID){
+      public  Courses(String name, String ID){
             this.name = name; this.ID = ID;
         }
 
@@ -70,14 +78,16 @@ public class Courses extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.courses, container, false);
-
         return rootView;
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+
     }
 
     @Override
@@ -112,6 +122,20 @@ public class Courses extends ListFragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
                 android.R.layout.simple_list_item_1, courses);
         getListView().setAdapter(adapter);
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                if (arg2 == 0)
+                {
+                    Intent intent = new Intent(getActivity(), Course1.class);
+                    getActivity().startActivity(intent);
+                }
+                Log.v("TAG", "CLICKED row number: " + arg2);
+            }
+
+        });
     }
     public void addCourse()
     {
@@ -119,6 +143,9 @@ public class Courses extends ListFragment {
         getActivity().startActivity(intent);
     }
     public void deleteCourse(){
+
+        Intent intent = new Intent(getActivity(), deleteCourse.class);
+        getActivity().startActivity(intent);
 
     }
     public List<String> getcourses()
