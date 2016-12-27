@@ -48,7 +48,7 @@ public class VoiceRecorder extends AppCompatActivity {
             play.setEnabled(false);
             stop.setEnabled(true);
             record.setEnabled(false);
-            //VoiceRecorderReady();
+            VoiceRecorderReady();
             record.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View button)
                 {
